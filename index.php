@@ -20,7 +20,7 @@
                 color: white;
                 text-align:center;
                 background-color: #333;
-                padding: 40px 30px;
+                padding: 40px 30px 20px 0;
                 text-decoration:none;
             }
             .navbar a:hover{
@@ -30,7 +30,7 @@
 
             .footer{
             position: fixed;
-            height: 10px;
+            height: 50px;
             left: 0;
             bottom: 0;
             width: 100%;
@@ -68,29 +68,29 @@
             color: #777;
         }
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            left: 50%; /* Center horizontally */
-            top: 50%; /* Center vertically */
-            transform: translate(-50%, -50%); /* Center alignment */
-            width: 500px; /* Width */
-            height: 500px; /* Height */
-            background-color: #fff; /* Background color */
-            border: 1px solid #000; /* Border */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Box shadow */
+            display: none;
+            position: fixed; 
+            z-index: 1; 
+            left: 50%; 
+            top: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 500px;
+            height: 500px; 
+            background-color: #fff; 
+            border: 1px solid #000; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
         }
         .modal-content {
-            padding: 20px; /* Padding */
-            text-align: center; /* Center text */
+            padding: 20px; 
+            text-align: center; 
         }
 
-        /* Style for the close button */
+        
         .close {
-            position: absolute; /* Position */
-            top: 5px; /* Distance from top */
-            right: 10px; /* Distance from right */
-            cursor: pointer; /* Cursor style */
+            position: absolute; 
+            top: 5px; 
+            right: 10px; 
+            cursor: pointer;
         }
         </style>
     </head>
@@ -111,7 +111,6 @@
             if (!$result) {
                 echo "Error: " . mysqli_error($conn);
             } else {
-                // Fetch and display results
                 while ($row = mysqli_fetch_assoc($result)) {
                     // print_r($row);?>
                     <div class="product_grid">
@@ -139,7 +138,6 @@
                     <h2>Product Details</h2>
                     <p>Description: Lorem ipsum dolor sit amet.</p>
                     <p>Price: $100</p>
-                    <!-- Add more details as needed -->
                 </div>
             </div>
 
@@ -159,14 +157,12 @@
         <script>
 
         $(document).ready(function() {
-            // Function to hide modal when user clicks outside of it
             $(document).on('click', function(event) {
                 if ($(event.target).closest('.modal').length === 0 && !$(event.target).hasClass('modal')) {
                     $('.modal').hide();
                 }
             });
 
-            // Function to hide modal when close button is clicked
             $('#close_modal').click(function() {
                 $('.modal').hide();
             });
@@ -186,11 +182,8 @@
                 $('#myModal').html(response);
                 $('.modal').show();
 
-                // console.log(response);
-                // You can update the DOM or perform further actions based on the response
             },
             error: function(xhr, status, error) {
-                // Handle errors here
                 console.error(xhr.responseText);
             }
         });
@@ -217,15 +210,10 @@
             price: price
             },
             success: function(response) {
-                // Handle successful response here
                 $('#myModal').html(response);
                 $('.modal').show();
-
-                // console.log(response);
-                // You can update the DOM or perform further actions based on the response
             },
             error: function(xhr, status, error) {
-                // Handle errors here
                 console.error(xhr.responseText);
             }
         });
